@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#f2eee5">
+<title>Patan Darbar · Explore the architecture</title>
+<link rel="preconnect" href="https://cdn.jsdelivr.net"><link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}</script>
+</head>
+<body>
+<main id="scene" aria-label="Interactive 3D Patan Durbar Square">
+  <header class="topbar"><div class="eyebrow">LALITPUR, NEPAL / AN ARCHITECTURAL STUDY</div><h1>Patan Darbar Square</h1></header>
+  <div id="hint">Drag to orbit · Scroll to zoom · Right-drag to pan</div>
+  <div id="loading">Building the square…</div><div id="error" hidden role="alert"></div>
+</main>
+<aside class="side" aria-label="Landmark guide and view controls">
+  <div class="sidehead"><div class="eyebrow">BRICK · TIMBER · STONE · WATER</div><h2>Explore the square</h2><div class="tabs"><button class="tab active" data-tab="map">Landmarks</button><button class="tab" data-tab="notes">Evidence</button></div></div>
+  <div class="panel">
+    <section id="map" class="story visible"><div id="selected-detail" aria-live="polite"></div><div id="places"></div></section>
+    <section id="notes" class="story">
+      <h3>Architecture, with context</h3>
+      <p>The square's existing north–south arrangement and landmark positions are retained. Individual monument models now distinguish roof counts, open galleries, platforms, courtyards and sacred water structures.</p>
+      <div class="note"><p><b>Estimated dimensions.</b> This is an interpretive reconstruction, not a measured digital twin. Site coordinates, building heights and surrounding streets remain estimates. Fine religious figures are simplified; inscriptions and narrative relief sequences are not fabricated.</p></div>
+      <h3>What informs the model</h3>
+      <p>Your supplied photograph informs the material palette, roof depth and visual character. Heritage documentation informs the identities of the monuments and the difference between the three water structures.</p>
+      <ul><li>Krishna Mandir: three stone storeys, arched galleries, subsidiary stone pavilions and 21 gilded pinnacles. Pinnacle placement is a visual interpretation.</li><li>Chyasin Dega: a separate eight-sided stone structure, with its own platform and arcade.</li><li>Bhimsen, Vishwanath, Char Narayan and Hari Shankar: individually dimensioned three-, two-, two- and three-roof models.</li><li>Keshav Narayan, Mul and Sundari Chowk: genuine open courts within detailed palace wings, with western entrance passages.</li><li>Manga Hiti: a recessed cruciform public basin with three spouts. Tusha Hiti: a smaller oval, slightly cusped ritual bath inside Sundari Chowk. Bhandarkhal: the rear rectangular tank.</li></ul>
+      <h3>Reference record</h3>
+      <p>References accessed 12 October 2026. The NHDP plan is undated on the linked page; the museum leaflet reflects conservation before the 2015 earthquake. CyArk's documentation dates to 2022, and the KVPT campaign record covers 2015–2025. The scene presents a consistent completed restoration interpretation.</p>
+      <a class="source" href="https://danam.cats.uni-heidelberg.de/heritage-foucus-area-patan-durbar-square/" target="_blank" rel="noreferrer">NHDP · Patan site plan ↗</a>
+      <a class="source" href="https://www.patanmuseum.gov.np/downloadfile/mcsc_1397894147_1584089641.pdf" target="_blank" rel="noreferrer">Patan Museum · courtyards, Tusha Hiti and Bhandarkhal ↗</a>
+      <a class="source" href="https://www.cyark.org/projects/nepal-sundari-chowk/resource" target="_blank" rel="noreferrer">CyArk · Sundari Chowk, 2022 ↗</a>
+      <a class="source" href="https://www.kvptnepal.org/campaign/earthquake-response-campaign" target="_blank" rel="noreferrer">KVPT · restoration campaign ↗</a>
+      <a class="source" href="https://trade.ntb.gov.np/wp-content/uploads/2023/04/world-heritage-sites-booklet.pdf" target="_blank" rel="noreferrer">Nepal Tourism Board · stone temple and column descriptions ↗</a>
+      <p>Walk mode is a free camera at 1.68 metres; collision and undocumented interiors are not simulated.</p>
+    </section>
+  </div>
+  <div class="bottom">
+    <div class="view-actions"><button id="overview" class="btn">Overview</button><button id="topView" class="btn">Plan</button><button id="walkView" class="btn">Eye level</button></div>
+    <div class="toggles"><button id="light" class="text-btn">Neutral daylight</button><button id="labels" class="text-btn" aria-pressed="false">Markers</button><button id="details" class="text-btn active">Ambient shadows on</button></div>
+    <div class="status">ESTIMATED METRES · CONTEMPORARY INTERPRETATION<br>20 INDIVIDUALLY SELECTABLE LANDMARKS</div>
+  </div>
+</aside>
+<script>
+window.addEventListener('error',function(event){var el=document.getElementById('error');el.hidden=false;el.textContent='The scene could not finish loading: '+event.message;});
+window.addEventListener('unhandledrejection',function(event){var el=document.getElementById('error');el.hidden=false;el.textContent='The scene could not finish loading: '+String(event.reason);});
+</script>
+<script type="module" src="./scene.js"></script>
+</body></html>
